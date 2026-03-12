@@ -13,7 +13,13 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins
+    allow_origins=[
+        "http://localhost:3000",  # React development server
+        "http://localhost:8000",  # FastAPI default
+        "http://127.0.0.1:3000",  # Alternative localhost
+        "http://127.0.0.1:8000",  # Alternative localhost
+        "https://learn-backend-course.onrender.com"  # Production hosted URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers

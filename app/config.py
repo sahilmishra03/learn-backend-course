@@ -2,11 +2,12 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_hostname: str
-    database_port: str
-    database_password: str
-    database_name: str
-    database_user: str
+    database_url: str = None
+    database_hostname: str = None
+    database_port: str = None
+    database_password: str = None
+    database_name: str = None
+    database_user: str = None
     secret_key: str
     algorithm: str
     access_token_expire_minutes: int
