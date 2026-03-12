@@ -12,7 +12,7 @@ class Post(Base):
     content = Column(String, nullable=False)
     published = Column(Boolean, server_default="True", nullable=False)
     created_at = Column(
-        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP")
     )
     owner_id = Column(Integer, ForeignKey("users.id", ondelete='CASCADE'), nullable=False)
     owner=relationship("User")
@@ -23,9 +23,9 @@ class User(Base):
     email = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     created_at = Column(
-        TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
+        TIMESTAMP(timezone=True), nullable=False, server_default=text("CURRENT_TIMESTAMP")
     )
-    mobile_no=Column(String, nullable=False)
+    mobile_no=Column(String, nullable=True)
 
 class Vote(Base):
     __tablename__ = "votes"

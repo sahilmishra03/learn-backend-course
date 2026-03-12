@@ -25,6 +25,6 @@ def get_user(id:int, response: Response,db: Session = Depends(get_db)):
     if not curr_user:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"post with id: {id} not found",
+            detail=f"user with id: {id} not found",
         )
     return curr_user
