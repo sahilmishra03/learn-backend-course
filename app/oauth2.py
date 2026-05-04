@@ -1,9 +1,12 @@
-from jose import JWTError, jwt
 from datetime import datetime, timedelta
-from . import models, schemas, utils, database
+
+from fastapi import (APIRouter, Body, Depends, FastAPI, HTTPException,
+                     Response, status)
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from jose import JWTError, jwt
 from sqlalchemy.orm import Session
-from fastapi import Body, FastAPI, HTTPException, Response, status, Depends, APIRouter
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+
+from . import database, models, schemas, utils
 from .config import settings
 
 oauth2_scheme = HTTPBearer()

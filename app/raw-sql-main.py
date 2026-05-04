@@ -1,10 +1,10 @@
 from random import randrange
 from typing import Optional
 
-from fastapi import Body, FastAPI, HTTPException, Response, status
-from pydantic import BaseModel
 import psycopg2
+from fastapi import Body, FastAPI, HTTPException, Response, status
 from psycopg2.extras import RealDictCursor
+from pydantic import BaseModel
 
 app = FastAPI()
 

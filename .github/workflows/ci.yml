@@ -96,6 +96,9 @@ jobs:
       - name: Run Alembic migrations (test)
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          secret_key: test_secret_key_for_ci_cd
+          algorithm: HS256
+          access_token_expire_minutes: 30
         run: |
           alembic upgrade head
 
