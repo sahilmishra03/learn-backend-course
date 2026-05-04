@@ -29,5 +29,8 @@ requires-python = ">=3.8"
 readme = "README.md"
 license = {text = "MIT"}
 
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
 [tool.fastapi]
 entrypoint = "app.main:app"
